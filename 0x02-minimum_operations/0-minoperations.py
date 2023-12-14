@@ -14,7 +14,7 @@ Number of operations: 6
 """
 
 
-def minOperations(n: int) -> int:
+def minOperations(n):
     """Returns an integer"""
     if n <= 1:
         return 0
