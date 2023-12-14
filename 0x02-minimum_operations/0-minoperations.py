@@ -20,14 +20,14 @@ def minOperations(n):
         return 0
 
     divisor = 2
-    operations = 0
+    min_no_Operations = 0
 
     while n > 1:
         if n % divisor == 0:
             n = n / divisor
-            operations = operations + divisor
+            min_no_Operations = min_no_Operations + divisor
 
         else:
             divisor += 1
 
-    return operations
+    return min_no_Operations
