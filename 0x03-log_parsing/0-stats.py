@@ -26,7 +26,7 @@ try:
             except (ValueError, IndexError):
                 pass
             if line_count % 10 == 0:
-                print(f'File Size: {total_size}')
+                print(f'File size: {total_size}')
                 for code in sorted(status_code_count.keys()):
                     if status_code_count[code] > 0:
                         print(f'{code}: {status_code_count[code]}')
@@ -35,7 +35,7 @@ try:
 except KeyboardInterrupt:
     pass
 finally:
-    print(f'File Size: {total_size}')
+    print(f'File size: {total_size}')
     for code in sorted(status_code_count.keys()):
         if status_code_count[code] > 0:
             print(f'{code}: {status_code_count[code]}')
