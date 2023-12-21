@@ -29,7 +29,7 @@ try:
                 print(f'File Size: {total_size}')
                 for code in sorted(status_code_count.keys()):
                     if status_code_count[code] > 0:
-                        print(f'{code}:{status_code_count[code]}')
+                        print(f'{code}: {status_code_count[code]}')
         except (ValueError, IndexError):
             pass
 except KeyboardInterrupt:
@@ -38,4 +38,4 @@ finally:
     print(f'File Size: {total_size}')
     for code in sorted(status_code_count.keys()):
         if status_code_count[code] > 0:
-            print(f'{code}:{status_code_count[code]}')
+            print(f'{code}: {status_code_count[code]}')
