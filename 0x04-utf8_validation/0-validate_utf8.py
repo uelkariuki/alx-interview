@@ -28,4 +28,4 @@ def validUTF8(data):
             # subtract as we processed one of the
             # continuation bytes
             no_of_bytes -= 1
-        return no_of_bytes == 0
+    return no_of_bytes == 0
