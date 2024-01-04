@@ -8,28 +8,31 @@ def validUTF8(data):
     Method that determines if a given data set represents
     a valid UTF-8 encoding
     """
-    no_of_bytes = 0
 
-    for value in data:
-        if no_of_bytes > 0:
-            if value >> 6 != 0b10:
+    def check(num):
+        """Function that returns the count of 1s"""
+        mask = 1 << (8-1) # 10000000
+        i = 0
+        while num & mask:
+            mask >>= 1
+            i += 1
+        return i
+
+    i = 0
+    while i < len(data):
+        # j is the current utf-8 character
+        j = check(data[i])
+        k = i + j - (j != 0)
+        i += 1
+        # invalid utf-8 encoding
+        if j == 1 or j > 4 or k >= len(data):
+            return False
+        while i < len(data) and i <= k:
+            current = check(data[i])
+            
+            if current != 1:
                 return False
-            # subtract as we processed one of the
-            # continuation bytes
-            no_of_bytes -= 1
-        else:
-            if value >> 7 == 0:
-                # set as 0 as its single-byte character
-                no_of_bytes = 0
-            # check first 3 bits if 110, its 2-byte character
-            elif value >> 5 == 0b110:
-                no_of_bytes = 1
-            elif value >> 4 == 0b1110:
-                # expecting 2 more bytes for this character
-                no_of_bytes = 2
-            elif value >> 3 == 0b11110:
-                no_of_bytes = 3
-            else:
-                # the first bits don't match any valid utf-8 character start
-                return False
-        return no_of_bytes == 0
+            i += 1
+        return True
+
+
