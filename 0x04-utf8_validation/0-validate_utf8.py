@@ -13,6 +13,8 @@ def validUTF8(data: List[int]) -> bool:
     no_of_bytes = 0
 
     for value in data:
+        if not 0 <= value <= 255:
+            return False
         if no_of_bytes == 0:
             # check first 3 bits if 110, its 2-byte character
             if (value >> 5) == 0b110:
