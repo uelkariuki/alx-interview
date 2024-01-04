@@ -13,12 +13,12 @@ def validUTF8(data):
     for value in data:
         if no_of_bytes == 0:
             # check first 3 bits if 110, its 2-byte character
-            if value >> 5 == 0b110:
+            if (value >> 5) == 0b110:
                 no_of_bytes = 1
-            elif value >> 4 == 0b1110:
+            elif (value >> 4) == 0b1110:
                 # expecting 2 more bytes for this character
                 no_of_bytes = 2
-            elif value >> 3 == 0b11110:
+            elif (value >> 3) == 0b11110:
                 no_of_bytes = 3
             elif (value >> 7) == 0:
                 continue
