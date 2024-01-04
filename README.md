@@ -5,3 +5,4 @@
 2. [0x01. Lockboxes](./0x00-pascal_triangle/)
 3. [0x02. Minimum Operations](./0x02-minimum_operations/)
 4. [0x03. Log Parsing](./0x03-log_parsing/)
+5. [0x04. UTF-8 Validation](./0x04-utf8_validation/)
