@@ -12,6 +12,9 @@ def makeChange(coins, total):
     """
     # default value for total is total + 1
     # * (total + 1) 0...total
+    if total == 0:
+        return 0
+
     dp = [total + 1] * (total + 1)
     dp[0] = 0
 
