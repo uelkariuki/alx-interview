@@ -15,7 +15,8 @@ def isWinner(x, nums):
     You can assume n and x will not be larger than 10000
     """
     if not isinstance(x, int) or not isinstance(nums, list) or x < 1:
-        return 
+        return
+
     def SieveofEratosthenes(n):
         """ Returns prime numbers found upto given limit
         """
